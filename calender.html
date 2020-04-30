@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Calender</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/693857039d.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.21/jquery.datetimepicker.css" />
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/calender.js"></script>
+</head>
+<body onload="initializeCal()">
+    <div class="wrapper">
+        <nav id="sidebar">
+            <ul class="list-unstyled components">
+                <li class="active" style="border-bottom:1px solid grey">
+                    <h1>To do list</h1>
+                </li>
+                <li>
+                    <i class="fa fa-cog"></i>
+                    <a href="today.html" style="display: inline-block;">My Day</a>
+                </li>
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="tasks.html" style="display: inline-block;">Tasks</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-calendar"></i>
+                    <a href="calender.html" style="display: inline-block;">Calender view</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <table class="table table-bordered table-responsive-sm" id="calendar">
+                            <thead>
+                                <tr>
+                                    <th colspan="2" style="vertical-align: inherit;">
+                                        <button class="btn btn-primary col-sm-2" id="previous" onclick="previous()"><i class="fa fa-arrow-circle-left"></i></button>
+                                    </th>
+                                    <th colspan="3" style="vertical-align: inherit;">
+                                        <h3 class="card-header" id="monthAndYear"></h3>
+                                    </th>
+                                    <th colspan="2" style="vertical-align: inherit;">
+                                        <button class="btn btn-primary col-sm-2" id="next" onclick="next()"><i class="fa fa-arrow-circle-right"></i></button>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Sun</th>
+                                    <th>Mon</th>
+                                    <th>Tue</th>
+                                    <th>Wed</th>
+                                    <th>Thu</th>
+                                    <th>Fri</th>
+                                    <th>Sat</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="calendar-body">
+                            </tbody>
+                        </table>
+                        <br />
+                        <table>
+                            <tr>
+                                <td style="width:10%;">
+                                    <label class="lead mr-2 ml-2" for="month">Jump To: </label>
+                                </td>
+                                <td style="width:15%;">
+                                    <select class="form-control" name="month" id="month" onchange="jump()">
+                                        <option value=0>Jan</option>
+                                        <option value=1>Feb</option>
+                                        <option value=2>Mar</option>
+                                        <option value=3>Apr</option>
+                                        <option value=4>May</option>
+                                        <option value=5>Jun</option>
+                                        <option value=6>Jul</option>
+                                        <option value=7>Aug</option>
+                                        <option value=8>Sep</option>
+                                        <option value=9>Oct</option>
+                                        <option value=10>Nov</option>
+                                        <option value=11>Dec</option>
+                                    </select>
+                                </td>
+                                <td style="width:20%;padding-left:40px;">
+                                    <select class="form-control" name="year" id="year" onchange="jump()">
+                                        <option value=1990>1990</option>
+                                        <option value=1991>1991</option>
+                                        <option value=1992>1992</option>
+                                        <option value=1993>1993</option>
+                                        <option value=1994>1994</option>
+                                        <option value=1995>1995</option>
+                                        <option value=1996>1996</option>
+                                        <option value=1997>1997</option>
+                                        <option value=1998>1998</option>
+                                        <option value=1999>1999</option>
+                                        <option value=2000>2000</option>
+                                        <option value=2001>2001</option>
+                                        <option value=2002>2002</option>
+                                        <option value=2003>2003</option>
+                                        <option value=2004>2004</option>
+                                        <option value=2005>2005</option>
+                                        <option value=2006>2006</option>
+                                        <option value=2007>2007</option>
+                                        <option value=2008>2008</option>
+                                        <option value=2009>2009</option>
+                                        <option value=2010>2010</option>
+                                        <option value=2011>2011</option>
+                                        <option value=2012>2012</option>
+                                        <option value=2013>2013</option>
+                                        <option value=2014>2014</option>
+                                        <option value=2015>2015</option>
+                                        <option value=2016>2016</option>
+                                        <option value=2017>2017</option>
+                                        <option value=2018>2018</option>
+                                        <option value=2019>2019</option>
+                                        <option value=2020>2020</option>
+                                        <option value=2021>2021</option>
+                                        <option value=2022>2022</option>
+                                        <option value=2023>2023</option>
+                                        <option value=2024>2024</option>
+                                        <option value=2025>2025</option>
+                                        <option value=2026>2026</option>
+                                        <option value=2027>2027</option>
+                                        <option value=2028>2028</option>
+                                        <option value=2029>2029</option>
+                                        <option value=2030>2030</option>
+                                    </select>
+                                </td>
+                                <td style="width:35%;padding-left:40px;">
+                                    <button class="btn btn-primary col-sm-4" onclick="addMoreTask()">Add more tasks</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Date</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        On going tasks <span id="onGoingTaskCount"></span>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ul class="list-group ul-on-going">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Completed tasks <span id="completedTaskCount"></span>
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <ul class="list-group ul-completed">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

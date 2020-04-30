@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Tasks</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/693857039d.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.21/jquery.datetimepicker.css" />
+
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body onload="onload('tasks')">
+    <div class="wrapper">
+        <nav id="sidebar">
+            <ul class="list-unstyled components">
+                <li class="active" style="border-bottom:1px solid grey">
+                    <h1>To do list</h1>
+                </li>
+                <li>
+                    <i class="fa fa-cog"></i>
+                    <a href="today.html" style="display: inline-block;">My Day</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-home"></i>
+                    <a href="tasks.html" style="display: inline-block;">Tasks</a>
+                </li>
+                <li>
+                    <i class="fa fa-calendar"></i>
+                    <a href="calender.html" style="display: inline-block;">Calender view</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <div class=".col-12 .col-md-12" style="">
+                <span style="font-weight: bolder; font-size: 1.5em;">All Tasks</span>
+            </div>
+            <div class=".col-6 .col-md-12">
+                <ul class="list-group ul-today">
+                    <li class="list-group-item li-add-task">
+                        <a href="#" class="a-add-task" onclick="addNewTask()">
+                            <svg id="svg-add-task" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" data-svgs-path="sm1/plus.svg">
+                                <path id="path-svg-add-task" fill="currentColor" fill-rule="evenodd" d="M6 6V.5a.5.5 0 0 1 1 0V6h5.5a.5.5 0 1 1 0 1H7v5.5a.5.5 0 1 1-1 0V7H.5a.5.5 0 0 1 0-1H6z">
+                                </path>
+                            </svg>
+                            Add task
+                        </a>
+                        <div class="div-add-task">
+                            <div class="input-group" style="padding-bottom: 10px;">
+                                <input type="text" class="form-control" placeholder="e.g. Design meeting at 11 pm p1 #meeting" id="new-task-input" name="newTask"/>
+                                <div class="input-group-append">
+                                    <input class="input-group" id="choose-dateTime"/>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <input type="button" value="Add Task" class="btn btn-danger btn-add-task" onclick="addTask()"/>
+                                <input type="button" value="Cancel" class="btn btn-light" onclick="cancelNewTask()"/>
+                                <div class="dropdown" style="padding-left: 10px;">
+                                    <button type="button" class="btn btn-light" data-toggle="dropdown" id="btn-project-list">
+                                        <i class="fa fa-list"></i>
+                                    </button>
+                                    <div class="dropdown-menu" id="a-project-list">
+                                        <a class="dropdown-item" href="#">Home</a>
+                                        <a class="dropdown-item" href="#">Work</a>
+                                        <a class="dropdown-item" href="#">Extra</a>
+                                    </div>
+                                </div>
+                                <div class="dropdown" style="padding-left: 2px;">
+                                    <button type="button" class="btn btn-light" data-toggle="dropdown" id="btn-priority-list">
+                                        <i class="fa fa-flag"></i>
+                                    </button>
+                                    <div class="dropdown-menu" id="a-priority-list">
+                                        <a class="dropdown-item" href="#"><i class="fa fa-flag" style="color: #DB4C3F"></i>&nbsp;&nbsp;High</a>
+                                        <a class="dropdown-item" href="#"><i class="fa fa-flag" style="color: #EB8909"></i>&nbsp;&nbsp;Medium</a>
+                                        <a class="dropdown-item" href="#"><i class="fa fa-flag" style="color: #246FE0"></i>&nbsp;&nbsp;Low</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
